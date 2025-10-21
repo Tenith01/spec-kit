@@ -71,7 +71,6 @@ AUGGIE_FILE="$REPO_ROOT/.augment/rules/specify-rules.md"
 ROO_FILE="$REPO_ROOT/.roo/rules/specify-rules.md"
 CODEBUDDY_FILE="$REPO_ROOT/CODEBUDDY.md"
 Q_FILE="$REPO_ROOT/AGENTS.md"
-
 # Template file
 TEMPLATE_FILE="$REPO_ROOT/.specify/templates/agent-file-template.md"
 
@@ -578,7 +577,7 @@ update_specific_agent() {
             ;;
         auggie)
             update_agent_file "$AUGGIE_FILE" "Auggie CLI"
-            ;;
+            update_agent_file "$AUGGIE_FILE" "Auggie CLI"
         roo)
             update_agent_file "$ROO_FILE" "Roo Code"
             ;;
@@ -589,12 +588,9 @@ update_specific_agent() {
             update_agent_file "$Q_FILE" "Amazon Q Developer CLI"
             ;;
         *)
-            log_error "Unknown agent type '$agent_type'"
-            log_error "Expected: claude|gemini|copilot|cursor-agent|qwen|opencode|codex|windsurf|kilocode|auggie|roo|q"
-            exit 1
             ;;
     esac
-}
+            log_error "Expected: claude|gemini|copilot|cursor-agent|qwen|opencode|codex|windsurf|kilocode|auggie|roo|q"
 
 update_all_existing_agents() {
     local found_agent=false
@@ -661,11 +657,6 @@ update_all_existing_agents() {
     fi
     
     # If no agent files exist, create a default Claude file
-    if [[ "$found_agent" == false ]]; then
-        log_info "No existing agent files found, creating default Claude file..."
-        update_agent_file "$CLAUDE_FILE" "Claude Code"
-    fi
-}
 print_summary() {
     echo
     log_info "Summary of changes:"

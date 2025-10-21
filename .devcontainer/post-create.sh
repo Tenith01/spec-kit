@@ -93,8 +93,3 @@ echo -e "\n📚 Installing DocFx..."
 run_command "dotnet tool update -g docfx"
 echo "✅ Done"
 
-echo -e "\n🧹 Cleaning cache..."
-run_command "sudo apt-get autoclean"
-run_command "sudo apt-get clean"
-
-echo "✅ Setup completed. Happy coding! 🚀"
